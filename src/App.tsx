@@ -20,7 +20,7 @@ function App() {
                     <Route path={"/"} element={<Home />} />
                     <Route path={"/details"} element={<Details />} />
                     <Route path={"/favourites"} element={<Favourites />} />
-                    <Route element={<>Error page</>} />
+                    <Route element={<> Error page </>} />
                   </Routes>
             </BrowserRouter>
           </Styles>

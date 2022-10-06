@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 const styles = styled.section`
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-   background-color: #ffcb05;
-   text-align: center;
+  background-color: #ffcb05;
+  text-align: center;
+  
 
   
   .main-container {
@@ -19,8 +22,23 @@ const styles = styled.section`
   .button {
      position: absolute;
      top: 10px;
-     right: 10px;
+     right: auto;
   }
+
+  .image-container {
+    margin-top: 90px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .pokemon-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  
+
+
 
    
 `

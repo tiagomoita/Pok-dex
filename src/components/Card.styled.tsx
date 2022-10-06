@@ -8,20 +8,15 @@ const styles = styled.section<cardProps>`
     
 
     .image-container {
-        width: 375.7px;
+        width: 250px;
         height: 250px;
         border-radius: 16px;
         position: relative;
     }
 
-    .clickable-zone {
-        //width: 300px;
-        //position: absolute;
-    }
-
     .card-information-title {
         position: absolute;
-        left: 25px;
+        left: -36px;
         bottom: 20px;
     }
 

@@ -4,15 +4,16 @@ type BoxProps = {
     children: React.ReactNode,
     boxRadius?: string,
     width?: string,
-    heigth?: string
-    padding?: string
+    heigth?: string,
+    padding?: string,
+    isDetails?: boolean
 }
 
 const Box = (props: BoxProps) => {
-    const { children, boxRadius, width, heigth, padding } = props;
+    const { children, boxRadius, width, heigth, padding, isDetails } = props;
 
     return (
-        <Styles className="box-wrapper" boxRadius={boxRadius} width={width} heigth={heigth} padding={padding}>
+        <Styles className="box-wrapper" boxRadius={boxRadius} width={width} heigth={heigth} padding={padding} isDetails={isDetails}>
             {children}
         </Styles>
     )

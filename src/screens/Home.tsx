@@ -10,10 +10,9 @@ import { Context as MainContext } from '../context/MainContext';
 
 const Home = () => {
     let navigate = useNavigate();
-    const { saveLocalData } = useContext(MainContext);
-    const [localData, setLocalData] = useState<any[]>([]);
+    const { saveLocalData, saveCurrentPage, state: { localData, page } } = useContext(MainContext);
     const favourites: any[] = [];
-    let [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [cardsPerPage] = useState(10);
     const [indexOfLastPage, setIndexOfLastPage] = useState(10);
     const [indexOfFirstPage, setIndexOfFirstPage] = useState(0);
@@ -23,7 +22,6 @@ const Home = () => {
         {   
             enabled: false,
             onSuccess: data => { 
-                setLocalData(data?.results);
                 saveLocalData(data?.results)
                 setCurrentPokemons(data?.results?.slice(indexOfFirstPage, indexOfLastPage));
             },
@@ -34,22 +32,31 @@ const Home = () => {
     );
       
     useEffect(() => {
-        getAllPokemons.refetch();
+        if(localData.length !== 151){
+            getAllPokemons.refetch();
+        }
         if(window.localStorage.getItem('favourites') === null){
             window.localStorage.setItem('favourites', JSON.stringify(favourites));
         } 
-    },[])
- 
-    const onClick = (name: string) => {
-        navigate('/details', { state: { name }});
-    }
+
+        //When going to Home, stay in same page
+        setCurrentPage(page);
+        const aux = page * cardsPerPage
+        setIndexOfLastPage(aux);
+        setIndexOfFirstPage(aux - cardsPerPage);
+
+    },[]);
 
     useEffect(() => {
         setCurrentPokemons(localData.slice(indexOfFirstPage, indexOfLastPage));
-    },[currentPage])
-   
+    },[currentPage]);
+
+    
+ 
+    const onClick = (name: string) => navigate('/details', { state: { name }});
 
     const paginate = (pageNumber: number) => {
+        saveCurrentPage(pageNumber);
         setCurrentPage(pageNumber);
         const aux = pageNumber * cardsPerPage
         setIndexOfLastPage(aux);

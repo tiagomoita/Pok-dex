@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const styles = styled.section`
-   display: flex;
+    display: flex;
     flex-direction: column;
-    //margin: 50px;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     background-color: #2a75bb;
-    //border-radius: 20px;
     position: relative;
   
  
@@ -19,6 +19,7 @@ const styles = styled.section`
         padding: 20px;
     }
 
+    /* Hide scrollbar for chrome */
     .card-section::-webkit-scrollbar {
         display: none;
     }
@@ -33,6 +34,24 @@ const styles = styled.section`
         position: absolute;
         top: 50%;
         left: 50%
+    }
+
+    @media only screen and (max-width: 1560px) {
+        .card-section {
+            grid-template-columns: auto auto auto;
+        }
+    }
+    
+    @media only screen and (max-width: 1230px) {
+        .card-section {
+            grid-template-columns: auto auto;
+        }
+    }
+
+    @media only screen and (max-width: 830px) {
+        .card-section {
+            grid-template-columns: auto;
+        }
     }
 
 

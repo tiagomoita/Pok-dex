@@ -5,15 +5,14 @@ type TextProps = {
   bold?: boolean;
   color?: string;
   size?: string;
-  fontSize?: string;
   underline?: boolean
 };
 
 export function Text(props: TextProps) {
-  const { text, color, bold, size, fontSize, underline } = props;
+  const { text, color, bold, size, underline } = props;
 
   return (
-    <TextContainer color={color} bold={bold} size={size} fontSize={fontSize} underline={underline}>
+    <TextContainer color={color} bold={bold} size={size} underline={underline}>
       {text}
     </TextContainer>
   );

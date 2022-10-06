@@ -11,7 +11,7 @@ const Header = () => {
     return (    
         <Styles className='header-wrapper'>
             <div className='title'>
-                <Text text={'Pokédex'} bold size='60px' color='red'/>
+                <Text text={'Pokédex'} bold color='red'/>
             </div>
             <div className='button-wrapper'>
                 <Button onClick={() => navigate('/favourites')} text="My Favourites" textBold textSize='20px' />

@@ -4,7 +4,8 @@ interface BoxProps {
     boxRadius?: string,
     width?: string,
     heigth?: string,
-    padding?: string
+    padding?: string,
+    isDetails?: boolean
 }
 
 const styles = styled.section<BoxProps>`
@@ -19,7 +20,17 @@ const styles = styled.section<BoxProps>`
     padding: ${(props) => props.padding ? props.padding : "30px"};
     width: ${(props) => props.width ? props.width : 'none'};
     height: ${(props) => props.heigth ? props.heigth : 'none'};
-    min-width: fit-content;
+    min-width: 400px;
+
+    @media only screen and (max-width: 568px) {  
+        padding: ${(props) => props.isDetails ? '10px' : null};
+        background-color: ${(props) => props.isDetails ? '#ffcb05' : null};
+        box-shadow: ${(props) => props.isDetails ? 'none' : null};
+        border: ${(props) => props.isDetails ? 'none' : null};
+    }
+    
+
+    
 
     
     

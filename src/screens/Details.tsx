@@ -17,7 +17,7 @@ const Details = () => {
         {   
             enabled: false,
             onSuccess: data => { 
-                //console.log(data)
+                
             },
             onError: (error: any) => {
                 console.log(error); 
@@ -65,22 +65,22 @@ const Details = () => {
     return (
         <Styles>
             <div className='main-container'>
-                <Box boxRadius='30px'>
+                <Box boxRadius='30px' isDetails={true}>
                     {!getPokemonDetails.isLoading && 
                         <>
                             <div className='image-container'>
-                                <img className='mainLogo' src={getPokemonDetails.data?.sprites?.other?.['dream_world']?.['front_default']} alt="mainLogo"/> 
+                                <img className='pokemon-image' src={getPokemonDetails.data?.sprites?.other?.['dream_world']?.['front_default']} alt="pokemonImage"/> 
                             </div>
                         
-                            <Text text={name} bold size={'100px'}/>
-                            <Text text={"Height: " + getPokemonDetails.data?.height } bold/>
-                            <Text text={"Weight: " + getPokemonDetails.data?.weight } bold/>
-                            <Text text={'Types: ' + getPokemonDetails.data?.types.map((elem: { type: { name: string; }; }) => { return elem.type.name })} bold />
-                            <Text text={'Abilities: ' + getPokemonDetails.data?.abilities.map((elem: { ability: { name: string; }; }) => { return elem.ability.name })} bold/>
-                            <Text text={'Species: ' + getPokemonDetails.data?.species.name } bold/>
-                            <Text text={'Moves: ' + getPokemonDetails.data?.moves.slice(0,20).map((elem: { move: { name: string; }; }) => { return elem.move.name })} bold/>
+                            <Text text={name} bold size={'80px'} />
+                            <Text text={"Height: " + getPokemonDetails.data?.height } bold size='16px'/>
+                            <Text text={"Weight: " + getPokemonDetails.data?.weight } bold size='16px'/>
+                            <Text text={'Types: ' + getPokemonDetails.data?.types.map((elem: { type: { name: string; }; }) => { return elem.type.name })} bold size='16px'/>
+                            <Text text={'Abilities: ' + getPokemonDetails.data?.abilities.map((elem: { ability: { name: string; }; }) => { return elem.ability.name })} bold size='16px'/>
+                            <Text text={'Species: ' + getPokemonDetails.data?.species.name } bold size='16px'/>
+                            <Text text={'Moves: ' + getPokemonDetails.data?.moves.slice(0,20).map((elem: { move: { name: string; }; }) => { return elem.move.name })} bold size='16px'/>
                             <div className='button'>
-                                <Button image={pokeball} onClick={saveAsFavourite} text={'Save As Favourite'} favourite={favourite}/>
+                                <Button image={pokeball} onClick={saveAsFavourite} text={'Save As Favourite'} favourite={favourite} textSize='16px'/>
                             </div>
                             
                     

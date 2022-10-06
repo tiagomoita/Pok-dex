@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 const styles = styled.section`
    display: flex;
+   align-items: center;
+    justify-content: center;
     flex-direction: column;
-    //margin: 50px;
     height: 100%;
     background-color: #2a75bb;
-    //border-radius: 20px;
   
  
    .card-section {
@@ -26,6 +26,24 @@ const styles = styled.section`
     .card-section {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+    }
+
+    @media only screen and (max-width: 1560px) {
+        .card-section {
+            grid-template-columns: auto auto auto;
+        }
+    }
+    
+    @media only screen and (max-width: 1230px) {
+        .card-section {
+            grid-template-columns: auto auto;
+        }
+    }
+
+    @media only screen and (max-width: 830px) {
+        .card-section {
+            grid-template-columns: auto;
+        }
     }
    
 

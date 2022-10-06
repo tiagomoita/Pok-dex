@@ -6,7 +6,6 @@ const styles = styled.main`
   flex-direction: column;
   
  
-
 `;
 
 export default styles;

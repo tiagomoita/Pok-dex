@@ -52,11 +52,6 @@ const styles = styled.article<ButtonProps>`
     color: ${(props) => props.textColor ? 'black' : props.textColor};
   }
 
-  .button:focus {
-    //border: ${(props) => props.isClicked ? '1px solid colors.black' : 'none'};
-  }
-
-  
   .image {
         width: 30px;
         height: 30px;
