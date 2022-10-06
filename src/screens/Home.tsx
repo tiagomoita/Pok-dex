@@ -18,6 +18,7 @@ const Home = () => {
     const [indexOfFirstPage, setIndexOfFirstPage] = useState(0);
     const [currentPokemons, setCurrentPokemons] = useState<any[]>([]);
     
+    //query to retrive all pokemons, with default limit of 151 Pokemons
     const getAllPokemons = useQuery(['getAllPokemons'], () => api.getAllPokemons({ limit: 151 }),
         {   
             enabled: false,
@@ -30,16 +31,19 @@ const Home = () => {
             },
         },
     );
-      
+
+  
     useEffect(() => {
+        //Only call the getAllPokemon API if we haven't done before, to reduce the amount of requests
         if(localData.length !== 151){
             getAllPokemons.refetch();
         }
+        //Initialize favourites array in localStorage
         if(window.localStorage.getItem('favourites') === null){
             window.localStorage.setItem('favourites', JSON.stringify(favourites));
         } 
 
-        //When going to Home, stay in same page
+        //When going back to home page, stay in same page that we left when navigating
         setCurrentPage(page);
         const aux = page * cardsPerPage
         setIndexOfLastPage(aux);
@@ -48,13 +52,15 @@ const Home = () => {
     },[]);
 
     useEffect(() => {
+        //Everytime we change page we need create the array to present on screen with their respective boundaries
         setCurrentPokemons(localData.slice(indexOfFirstPage, indexOfLastPage));
     },[currentPage]);
 
     
- 
+    //navigate to Pokemon details page
     const onClick = (name: string) => navigate('/details', { state: { name }});
 
+    //save currentPage in ContextAPI to use when going back to Home page as well as calculate de index of the first and last pokemon in the current page
     const paginate = (pageNumber: number) => {
         saveCurrentPage(pageNumber);
         setCurrentPage(pageNumber);
@@ -67,6 +73,7 @@ const Home = () => {
         <>  
             <Header />
             <Styles>
+                {/* Make sure that API request is not loading, and loop through the list to show in screen */ }
                 {getAllPokemons.isLoading ? <p>LOADING ...</p> :
                 <div className='card-section'>  
                     {!getAllPokemons.isLoading && currentPokemons.map((elem, i) => {

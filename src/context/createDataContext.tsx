@@ -1,5 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 
+//BOILERPLATE CODE TO INITIALIZE CONTEXT API
+
 const createDataContext = (reducer, actions, initialState) => {
   const Context = createContext({...initialState});
 

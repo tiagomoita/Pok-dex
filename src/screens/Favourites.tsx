@@ -11,6 +11,11 @@ const Favourites = () => {
     const { state: { localData } } = useContext(MainContext);
     const [currentFavourites, setCurrentFavourites] = useState<any[]>([]);
 
+
+    //Check if we have any favourites and if not return a message to screen, 
+    //or else filter from localData array only the ones who are marked as favourite, 
+    //by comparing the name with array that we create and store in localStorage.
+    
     useEffect(() => {
         if(localStorage.getItem('favourites') === null || localStorage.getItem('favourites') === '[]'){
             setErrorMessage(`You don't have any pokemons marked as favourite ! `)

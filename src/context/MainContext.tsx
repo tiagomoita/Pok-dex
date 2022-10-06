@@ -1,5 +1,8 @@
 import createDataContext from './createDataContext';
 
+
+//Reducer
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SAVE_LOCAL_DATA': {
@@ -14,6 +17,8 @@ const reducer = (state, action) => {
 };
 
 
+//Methods to be dispatch
+
 const saveLocalData = (dispatch) => {
   return async (data: []) => {
     await dispatch({ type: 'SAVE_LOCAL_DATA', payload: data });
@@ -26,7 +31,7 @@ const saveCurrentPage = (dispatch) => {
   };
 };
 
-
+//export reducer, methods, and set state with default Values
 
 export const { Provider, Context } = createDataContext(
     reducer, 

@@ -25,7 +25,9 @@ const Details = () => {
         },
     );
 
-   
+    //When navigatin from Home Page to the Details we are passing the name of the pokemon as the "id", 
+    //so, we need to get the name in first place, and set to be able to fetch the getPokemonDetails API with the correct name.
+    //after we unmount the component, we make sure that this variable is detroyed, just for precautions.
     useEffect(() => {
         setName(location?.state?.name);
         if(name !== ''){
@@ -36,6 +38,9 @@ const Details = () => {
         }
     },[name])
 
+
+    //Here we are setting the favourite variable just to check if that specific pokemon was set as favourite before or not
+    //to make sure that when we click the "Save as favourite" button we are either saving or unsaving
     useEffect(() => {
         const array = JSON.parse(window.localStorage.getItem('favourites')|| '{}'); 
         if(array.includes(location?.state?.name)){
@@ -47,14 +52,18 @@ const Details = () => {
 
     const saveAsFavourite = () => setFavourite(!favourite);
 
+
+    //Here is where we save data to localStorage when clicking the "Save as favourite" button, first we retrive the array from localStorge
     useEffect(() => {
         const array = JSON.parse(window.localStorage.getItem('favourites')|| '{}');
 
+        //ADD FAVOURITE
         if(favourite && !array.includes(location?.state?.name)){
             array.push(name);
             window.localStorage.setItem("favourites", JSON.stringify(array));
         }
 
+        //REMOVING FAVOURITE
         if(!favourite && array.includes(location?.state?.name)){
             const newArray = array.filter((e: string) => e !== name)
             window.localStorage.setItem("favourites", JSON.stringify(newArray));

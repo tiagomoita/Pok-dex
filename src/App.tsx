@@ -9,6 +9,8 @@ import { Provider as MainProvider } from './context/MainContext';
 
 const queryClient = new QueryClient()
 
+//Main App Routing with 3 Routes, QueryClientProvider in order to use react-query library and the Main Provider from Context API
+
 function App() {
   return (
     <>
