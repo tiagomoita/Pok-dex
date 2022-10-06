@@ -1,5 +1,11 @@
 # Pokédex
-Basic Pokedex app, that consumes the "https://pokeapi.co/" API and presents a list of pokemons, with pagination and able to save pokemons as favourites
+Basic Pokedex app, that consumes the "https://pokeapi.co/" API and presents a list of pokemons, with pagination and able to save pokemons as favourites.
+
+## Layout on Browser
+
+<img src="https://github.com/tiagomoita/Pokedex/blob/main/src/assets/images/Screenshot_Home.png" width="700" height="315" />
+<img src="https://github.com/tiagomoita/Pokedex/blob/main/src/assets/images/Screenshot_PokemonDetails.png" width="700" height="315" />
+
 
 # Getting Started with Create React App
 
