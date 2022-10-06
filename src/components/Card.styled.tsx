@@ -12,6 +12,7 @@ const styles = styled.section<cardProps>`
         height: 250px;
         border-radius: 16px;
         position: relative;
+        cursor: pointer;
     }
 
     .card-information-title {
