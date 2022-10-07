@@ -27,6 +27,20 @@ export const TextContainer = styled.p<TextProps>`
     font-size: ${props => (props.size ? props.size : '40px')};
   }
 
+  @media only screen and (max-width: 1000px) {
+    font-size: ${props => (props.size ? `${parseInt(props.size, 10) * 0.70}px` : '40px')};
+  }
+
+  
+  @media only screen and (max-height: 1000px) {
+    font-size: ${props => (props.size ? `${parseInt(props.size, 10) * 0.70}px` : '40px')};
+  }
+
+
+  
+ 
+
+
 
 `;
 

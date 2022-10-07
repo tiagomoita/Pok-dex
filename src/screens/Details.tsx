@@ -80,7 +80,7 @@ const Details = () => {
                             <div className='image-container'>
                                 <img className='pokemon-image' src={getPokemonDetails.data?.sprites?.other?.['dream_world']?.['front_default']} alt="pokemonImage"/> 
                             </div>
-                        
+
                             <Text text={name} bold size={'80px'} />
                             <Text text={"Height: " + getPokemonDetails.data?.height } bold size='16px'/>
                             <Text text={"Weight: " + getPokemonDetails.data?.weight } bold size='16px'/>
